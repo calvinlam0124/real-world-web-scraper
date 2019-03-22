@@ -23,6 +23,7 @@ foreach ($nodes as $node) {
 foreach($items as $item_html){
     $post_dict = new stdClass();
     $dom->loadHTML($item_html);
+    $xpath = new DomXPath($dom);
 
     $nodes = $xpath->query("//p[@class='title']/a");
     $post_dict->title = $nodes[0]->nodeValue;
