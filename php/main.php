@@ -26,7 +26,7 @@ foreach($items as $item_html){
     $xpath = new DomXPath($dom);
 
     $nodes = $xpath->query("//p[@class='title']/a");
-    $post_dict->title = $nodes[0]->nodeValue;
+    $post_dict->title = utf8_decode($nodes[0]->nodeValue);
     $post_dict->href = $post_href_prefix . $nodes[0]->attributes->getNamedItem('href')->nodeValue;
 
     $nodes = $xpath->query("//p[@class='post-at']");
